@@ -268,17 +268,18 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>8FBAC2321264030F00881579</string>
 								<string>8FBAC1A51263F9C100881579</string>
 								<string>8FBAC19E1263F98900881579</string>
-								<string>8FBAC19D1263F97F00881579</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
+								<string>29B97323FDCFA39411CA2CEA</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
-									<integer>5</integer>
+									<integer>4</integer>
+									<integer>2</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -319,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>8FBAC1921263F96A00881579</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PDFRendererView.m</string>
+								<string>AFKPageFlipper.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,21 +328,23 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>8FBAC1931263F96A00881579</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PDFRendererView.m</string>
+										<string>AFKPageFlipper.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>8FBAC2311264028E00881579</string>
+										<string>8FBAC9AA12643E0A00881579</string>
 										<key>history</key>
 										<array>
 											<string>8FBAC19F1263F99100881579</string>
 											<string>8FBAC1B61263FAD100881579</string>
 											<string>8FBAC1D81263FB4000881579</string>
 											<string>8FBAC1E01263FBC800881579</string>
-											<string>8FBAC1EB1263FBEB00881579</string>
-											<string>8FBAC2091263FC5100881579</string>
-											<string>8FBAC21D1264023C00881579</string>
-											<string>8FBAC21E1264023C00881579</string>
+											<string>8FBAC89A1264375000881579</string>
+											<string>8FBAC89B1264375000881579</string>
+											<string>8FBAC89C1264375000881579</string>
+											<string>8FBAC89D1264375000881579</string>
+											<string>8FBAC9A812643E0A00881579</string>
+											<string>8FBAC9A912643E0A00881579</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -380,7 +383,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1713, 724}}</string>
+										<string>{{10, 27}, {1713, 295}}</string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -464,11 +467,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>8FBAC1941263F96A00881579</string>
+				<string>8FBAC80612642ECA00881579</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>8FBAC1951263F96A00881579</string>
+				<string>8FBAC80712642ECA00881579</string>
 				<string>8FBAC1921263F96A00881579</string>
-				<string>8FBAC1961263F96A00881579</string>
+				<string>8FBAC80812642ECA00881579</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -618,14 +621,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>8FBAC1BB1263FAD100881579</string>
+				<string>8FBAC8A11264375000881579</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>8FBAC1BC1263FAD100881579</string>
-				<string>8FBAC1BD1263FAD100881579</string>
-				<string>8FBAC1BE1263FAD100881579</string>
-				<string>8FBAC1BF1263FAD100881579</string>
-				<string>8FBAC1C01263FAD100881579</string>
+				<string>8FBAC8A21264375000881579</string>
+				<string>8FBAC8A31264375000881579</string>
+				<string>8FBAC8A41264375000881579</string>
+				<string>8FBAC8A51264375000881579</string>
+				<string>8FBAC8A61264375000881579</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
 			<string>2</string>
@@ -659,8 +662,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>8FBAC1C21263FAD100881579</string>
-		<string>8FBAC1C31263FAD100881579</string>
+		<string>8FBAC8A81264375000881579</string>
+		<string>8FBAC8A91264375000881579</string>
 		<string>/Users/marcot/Documents/XCode/AFKPageFlipper/AFKPageFlipper.xcodeproj</string>
 	</array>
 	<key>WindowString</key>

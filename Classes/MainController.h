@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFKPageFlipper.h"
 
 
-@interface MainController : UIViewController {
-
+@interface MainController : UIViewController <AFKPageFlipperDataSource> {
+	CGPDFDocumentRef pdfDocument;
 }
 
 @end

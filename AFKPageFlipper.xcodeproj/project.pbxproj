@@ -16,6 +16,8 @@
 		8FBAC19B1263F97A00881579 /* ccrf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8FBAC19A1263F97A00881579 /* ccrf.pdf */; };
 		8FBAC1A41263F99800881579 /* PDFRendererView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC1A31263F99800881579 /* PDFRendererView.m */; };
 		8FBAC1A81263F9ED00881579 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC1A71263F9ED00881579 /* MainController.m */; };
+		8FBAC2491264061600881579 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBAC2481264061600881579 /* QuartzCore.framework */; };
+		8FBAC8131264315F00881579 /* AFKPageFlipper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,9 @@
 		8FBAC1A31263F99800881579 /* PDFRendererView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFRendererView.m; sourceTree = "<group>"; };
 		8FBAC1A61263F9ED00881579 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		8FBAC1A71263F9ED00881579 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		8FBAC2481264061600881579 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8FBAC8111264315F00881579 /* AFKPageFlipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFKPageFlipper.h; sourceTree = "<group>"; };
+		8FBAC8121264315F00881579 /* AFKPageFlipper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFKPageFlipper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				8FBAC2491264061600881579 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +59,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8FBAC2321264030F00881579 /* AFKPageFlipper */,
 				8FBAC1A51263F9C100881579 /* Main Controller */,
 				8FBAC19E1263F98900881579 /* PDF Renderer */,
 				8FBAC19D1263F97F00881579 /* App Delegate */,
@@ -105,6 +112,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				8FBAC2481264061600881579 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,6 +142,15 @@
 				8FBAC1A71263F9ED00881579 /* MainController.m */,
 			);
 			name = "Main Controller";
+			sourceTree = "<group>";
+		};
+		8FBAC2321264030F00881579 /* AFKPageFlipper */ = {
+			isa = PBXGroup;
+			children = (
+				8FBAC8111264315F00881579 /* AFKPageFlipper.h */,
+				8FBAC8121264315F00881579 /* AFKPageFlipper.m */,
+			);
+			name = AFKPageFlipper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +218,7 @@
 				1D3623260D0F684500981E51 /* AFKPageFlipperAppDelegate.m in Sources */,
 				8FBAC1A41263F99800881579 /* PDFRendererView.m in Sources */,
 				8FBAC1A81263F9ED00881579 /* MainController.m in Sources */,
+				8FBAC8131264315F00881579 /* AFKPageFlipper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

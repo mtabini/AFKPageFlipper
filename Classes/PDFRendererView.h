@@ -10,14 +10,13 @@
 
 
 @interface PDFRendererView : UIView {
-	NSString *pdfPath;
 	CGPDFDocumentRef pdfDocument;
 	
 	int pageNumber;
 }
 
 
-@property (nonatomic,retain) NSString *pdfPath;
+@property (nonatomic,assign) CGPDFDocumentRef pdfDocument;
 
 @property (nonatomic,assign) int pageNumber;
 

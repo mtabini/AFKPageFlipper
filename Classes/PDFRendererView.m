@@ -15,25 +15,15 @@
 #pragma mark -
 #pragma mark Property management
 
-@synthesize pdfPath;
+@synthesize pdfDocument;
 
-
-- (void) setPdfPath:(NSString *) value {
-	if (pdfPath) {
-		[pdfPath release];
-	}
-	
+- (void) setPdfDocument:(CGPDFDocumentRef) value {
 	if (pdfDocument) {
 		CGPDFDocumentRelease(pdfDocument);
 	}
 	
-	pdfPath = [value retain];
-	pdfDocument = CGPDFDocumentCreateWithURL((CFURLRef) [NSURL fileURLWithPath:pdfPath]);
-	
-	NSAssert1(pdfDocument, @"Unable to load PDF document %@!", value);
-	
-	pageNumber = 1;
-	[self setNeedsDisplay];
+	pdfDocument = CGPDFDocumentRetain(value);
+	self.pageNumber = 1;
 }
 
 

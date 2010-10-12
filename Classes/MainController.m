@@ -15,6 +15,24 @@
 
 
 #pragma mark -
+#pragma mark Data source implementation
+
+
+- (NSInteger) numberOfPagesForPageFlipper:(AFKPageFlipper *)pageFlipper {
+	return CGPDFDocumentGetNumberOfPages(pdfDocument);
+}
+
+
+- (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper {
+	PDFRendererView *result = [[[PDFRendererView alloc] initWithFrame:pageFlipper.bounds] autorelease];
+	result.pdfDocument = pdfDocument;
+	result.pageNumber = page;
+	
+	return result;
+}
+
+
+#pragma mark -
 #pragma mark View management
 
 
@@ -22,11 +40,12 @@
 	self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]] autorelease];
 	self.view.autoresizesSubviews = YES;
 	
-	PDFRendererView *rendererView = [[[PDFRendererView alloc] initWithFrame:self.view.bounds] autorelease];
-	rendererView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	rendererView.pdfPath = [[NSBundle mainBundle] pathForResource:@"ccrf" ofType:@"pdf"];
+	AFKPageFlipper *flipper = [[[AFKPageFlipper alloc] initWithFrame:self.view.bounds] autorelease];
+	flipper.dataSource = self;
 	
-	[self.view addSubview:rendererView];
+	[self.view addSubview:flipper];
+	
+	flipper.currentPage = 2;
 }
 
 
@@ -41,6 +60,8 @@
 
 - (id) init {
 	if ((self = [super init])) {
+		pdfDocument = CGPDFDocumentCreateWithURL((CFURLRef) [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ccrf" ofType:@"pdf"]]);
+		
 		[self loadView];
 	}
 	
@@ -49,6 +70,7 @@
 
 
 - (void)dealloc {
+	CGPDFDocumentRelease(pdfDocument);
     [super dealloc];
 }
 
