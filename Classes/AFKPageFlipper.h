@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 @class AFKPageFlipper;
 
@@ -19,6 +21,12 @@
 @end
 
 
+typedef enum {
+	AFKPageFlipperDirectionLeft,
+	AFKPageFlipperDirectionRight,
+} AFKPageFlipperDirection;
+
+
 
 @interface AFKPageFlipper : UIView {
 	NSObject <AFKPageFlipperDataSource> *dataSource;
@@ -27,11 +35,20 @@
 	UIView *currentView;
 	UIView *newView;
 	
+	CALayer *backgroundAnimationLayer;
+	CALayer *flipAnimationLayer;
+	
+	AFKPageFlipperDirection flipDirection;
+	float startFlipAngle;
+	float endFlipAngle;
+
+	/*
 	CALayer *currentLeftLayer;
 	CALayer *currentRightLayer;
 	
 	CALayer *newLeftLayer;
 	CALayer *newRightLayer;
+	*/
 }
 
 @property (nonatomic,retain) NSObject <AFKPageFlipperDataSource> *dataSource;

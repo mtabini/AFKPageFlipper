@@ -7,7 +7,6 @@
 //
 
 #import "AFKPageFlipper.h"
-#import <QuartzCore/QuartzCore.h>
 
 
 #pragma mark -
@@ -56,7 +55,7 @@
 #pragma mark Flip functionality
 
 
-- (void) startFlip {
+- (void) initFlip {
 	
 	// Create screenshots of view
 	
@@ -73,80 +72,99 @@
 	CGRect rect = self.bounds;
 	rect.size.width /= 2;
 	
-	CATransform3D transform;
+	backgroundAnimationLayer = [CALayer layer];
+	backgroundAnimationLayer.frame = self.bounds;
+	backgroundAnimationLayer.zPosition = -300000;
 	
-	currentLeftLayer = [CALayer layer];
+	CALayer *leftLayer = [CALayer layer];
+	leftLayer.frame = rect;
+	leftLayer.masksToBounds = YES;
+	leftLayer.contentsGravity = kCAGravityLeft;
 	
-	currentLeftLayer.frame = rect;
-	currentLeftLayer.contents = (id) [currentImage CGImage];
-	currentLeftLayer.masksToBounds = YES;
-	currentLeftLayer.contentsGravity = kCAGravityLeft;
-	
-	[self.layer addSublayer:currentLeftLayer];
-	
-	newLeftLayer = [CALayer layer];
-	
-	newLeftLayer.anchorPoint = CGPointMake(1.0, 0.5);
-	newLeftLayer.frame = rect;
-	newLeftLayer.contents = (id) [newImage CGImage];
-	newLeftLayer.masksToBounds = YES;
-	newLeftLayer.contentsGravity = kCAGravityLeft;
-	
-	transform = CATransform3DMakeRotation(0.0, 0.0, 1.0, 0.0);
-	transform.m34 = -1.0f / 1500.0f;
-	
-	newLeftLayer.transform = transform;
-	
-	[self.layer addSublayer:newLeftLayer];
+	[backgroundAnimationLayer addSublayer:leftLayer];
 	
 	rect.origin.x = rect.size.width;
 	
-	newRightLayer = [CALayer layer];
+	CALayer *rightLayer = [CALayer layer];
+	rightLayer.frame = rect;
+	rightLayer.masksToBounds = YES;
+	rightLayer.contentsGravity = kCAGravityRight;
 	
-	newRightLayer.frame = rect;
-	newRightLayer.contents = (id) [newImage CGImage];
-	newRightLayer.masksToBounds = YES;
-	newRightLayer.contentsGravity = kCAGravityRight;
+	[backgroundAnimationLayer addSublayer:rightLayer];
 	
-	[self.layer addSublayer:newRightLayer];
-	
-	currentRightLayer = [CALayer layer];
-	
-	currentRightLayer.anchorPoint = CGPointMake(0.0, 0.5);
-	currentRightLayer.frame = rect;
-	currentRightLayer.contents = (id) [currentImage CGImage];
-	currentRightLayer.masksToBounds = YES;
-	currentRightLayer.contentsGravity = kCAGravityRight;
+	if (flipDirection == AFKPageFlipperDirectionRight) {
+		leftLayer.contents = (id) [newImage CGImage];
+		rightLayer.contents = (id) [currentImage CGImage];
+	} else {
+		leftLayer.contents = (id) [currentImage CGImage];
+		rightLayer.contents = (id) [newImage CGImage];
+	}
 
-	transform = CATransform3DIdentity;
-	transform.m34 = -1.0f / 1500.0f;
-	transform = CATransform3DRotate(transform, -M_PI / 2, 0.0, 1.0, 0.0);
+	[self.layer addSublayer:backgroundAnimationLayer];
 	
-	currentRightLayer.transform = transform;
+	rect.origin.x = 0;
 	
-	[self.layer addSublayer:currentRightLayer];
+	flipAnimationLayer = [CATransformLayer layer];
+	flipAnimationLayer.anchorPoint = CGPointMake(1.0, 0.5);
+	flipAnimationLayer.frame = rect;
 	
-	// Perform rotations
+	[self.layer addSublayer:flipAnimationLayer];
 	
-	float kAnimationDuration = 0.5;
+	CALayer *backLayer = [CALayer layer];
+	backLayer.frame = flipAnimationLayer.bounds;
+	backLayer.doubleSided = NO;
+	backLayer.masksToBounds = YES;
 	
-	CAKeyframeAnimation *newAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.y"];
+	[flipAnimationLayer addSublayer:backLayer];
 	
-	newAnimation.duration = kAnimationDuration;
-	newAnimation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:M_PI / 2],
-													[NSNumber numberWithFloat:M_PI / 2],
-													[NSNumber numberWithFloat:0.0f],
-													Nil];
+	CALayer *frontLayer = [CALayer layer];
+	frontLayer.frame = flipAnimationLayer.bounds;
+	frontLayer.doubleSided = NO;
+	frontLayer.masksToBounds = YES;
+	frontLayer.transform = CATransform3DMakeRotation(M_PI, 0, 1.0, 0);
 	
-	[newLeftLayer addAnimation:newAnimation forKey:Nil];
+	[flipAnimationLayer addSublayer:frontLayer];
 	
-	CABasicAnimation *currentAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+	if (flipDirection == AFKPageFlipperDirectionRight) {
+		backLayer.contents = (id) [currentImage CGImage];
+		backLayer.contentsGravity = kCAGravityLeft;
+		
+		frontLayer.contents = (id) [newImage CGImage];
+		frontLayer.contentsGravity = kCAGravityRight;
+		
+		CATransform3D transform = CATransform3DIdentity;
+		transform.m34 = 1.0f / 2500.0f;
+		transform = CATransform3DRotate(transform, -M_PI, 0.0, 1.0, 0.0);
+		
+		flipAnimationLayer.transform = transform;
+		
+		startFlipAngle = 0;
+		startFlipAngle = -M_PI;
+	} else {
+		backLayer.contentsGravity = kCAGravityLeft;
+		backLayer.contents = (id) [newImage CGImage];
+		
+		frontLayer.contents = (id) [currentImage CGImage];
+		frontLayer.contentsGravity = kCAGravityRight;
+		
+		CATransform3D transform = CATransform3DIdentity;
+		transform.m34 = 1.0f / 2500.0f;
+		transform = CATransform3DRotate(transform, 0, 0.0, 1.0, 0.0);
+		
+		flipAnimationLayer.transform = transform;
+		
+		startFlipAngle = -M_PI;
+		endFlipAngle = 0;
+	}
+
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
 	
-	currentAnimation.duration = kAnimationDuration / 2;
-	currentAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
-	currentAnimation.toValue = [NSNumber numberWithFloat:-M_PI / 2];
+	animation.duration = 1.0;
+	animation.fromValue = [NSNumber numberWithFloat:startFlipAngle];
+	animation.toValue = [NSNumber numberWithFloat:endFlipAngle];
+	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	
-	[currentRightLayer addAnimation:currentAnimation forKey:Nil];
+	[flipAnimationLayer addAnimation:animation forKey:Nil];
 }
 
 
@@ -183,11 +201,16 @@
 
 
 - (void) setCurrentPage:(NSInteger) value {
+	if (value == currentPage) {
+		return;
+	}
+	
+	flipDirection = (value < currentPage ? AFKPageFlipperDirectionRight : AFKPageFlipperDirectionLeft);
 	currentPage = value;
 	
 	self.newView = [self.dataSource viewForPage:value inFlipper:self];
-	[self startFlip];
-}
+	[self initFlip];
+} 
 
 
 @synthesize dataSource;
@@ -201,6 +224,15 @@
 	dataSource = [value retain];
 	currentPage = 1;
 	self.currentView = [self.dataSource viewForPage:1 inFlipper:self];
+}
+
+
+#pragma mark -
+#pragma mark Initialization and memory management
+
+
++ (Class) layerClass {
+	return [CATransformLayer class];
 }
 
 

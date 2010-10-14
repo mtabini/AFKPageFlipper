@@ -73,6 +73,8 @@
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	// Clear background
+
+	CGContextClearRect(context, self.bounds);
 	
 	CGContextSaveGState(context);
 	
@@ -104,6 +106,15 @@
 
 #pragma mark -
 #pragma mark Initialization and memory management
+
+
+- (id) initWithFrame:(CGRect) frame {
+	if ((self = [super initWithFrame:frame])) {
+		self.backgroundColor = [UIColor clearColor];
+	}
+	
+	return self;
+}
 
 
 - (void)dealloc {
