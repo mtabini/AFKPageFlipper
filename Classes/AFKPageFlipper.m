@@ -169,20 +169,38 @@
 }
 
 
-- (void) cleanupFlip {
+- (void) cleanupFlipAndShowNewView:(BOOL) setNewView {
 	[backgroundAnimationLayer removeFromSuperlayer];
 	[flipAnimationLayer removeFromSuperlayer];
 	
-	[self.currentView removeFromSuperview];
-	self.newView.alpha = 1;
+	backgroundAnimationLayer = Nil;
+	flipAnimationLayer = Nil;
+	
+	if (setNewView) {
+		[self.currentView removeFromSuperview];
+		self.currentView = Nil;
+		
+		self.newView.alpha = 1;
+	} else {
+		[self.newView removeFromSuperview];
+		self.newView = Nil;
+	}
+
 }
 
 #pragma mark -
 #pragma mark Animation management
 
+
 - (void)animationDidStop:(CAAnimation *) theAnimation finished:(BOOL) flag {
-	[self cleanupFlip];
+	[self cleanupFlipAndShowNewView:flag];
 }
+
+
+- (void)animationDidStop:(NSString *) animationID finished:(NSNumber *) finished context:(void *) context {
+	[self cleanupFlipAndShowNewView:[finished boolValue]];
+}
+
 
 #pragma mark -
 #pragma mark Properties
@@ -216,16 +234,34 @@
 @synthesize currentPage;
 
 
-- (void) setCurrentPage:(NSInteger) value {
+- (BOOL) doSetCurrentPage:(NSInteger) value {
 	if (value == currentPage) {
-		return;
+		return FALSE;
 	}
 	
 	flipDirection = (value < currentPage ? AFKPageFlipperDirectionRight : AFKPageFlipperDirectionLeft);
 	currentPage = value;
 	
 	self.newView = [self.dataSource viewForPage:value inFlipper:self];
-	[self initFlip];
+	
+	return TRUE;
+}	
+
+- (void) setCurrentPage:(NSInteger) value {
+	if (![self doSetCurrentPage:value]) {
+		return;
+	}
+	
+	self.newView.alpha = 0;
+	
+	[UIView beginAnimations:@"" context:Nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+	
+	self.newView.alpha = 1;
+	
+	[UIView commitAnimations];
 } 
 
 
@@ -238,8 +274,7 @@
 	}
 	
 	dataSource = [value retain];
-	currentPage = 1;
-	self.currentView = [self.dataSource viewForPage:1 inFlipper:self];
+	self.currentPage = 1;
 }
 
 
