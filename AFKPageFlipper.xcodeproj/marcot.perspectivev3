@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -278,8 +280,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
-									<integer>8</integer>
+									<integer>4</integer>
+									<integer>2</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -313,14 +315,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>8FBAC1921263F96A00881579</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PDFRendererView.m</string>
+								<string>AFKPageFlipper.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>8FBAC1931263F96A00881579</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PDFRendererView.m</string>
+										<string>AFKPageFlipper.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>8FAEF33F1266BB8600D88B84</string>
+										<string>8FAEF3A11266C17000D88B84</string>
 										<key>history</key>
 										<array>
 											<string>8FBAC1B61263FAD100881579</string>
@@ -342,9 +342,9 @@
 											<string>8FAEF1871266AF5F00D88B84</string>
 											<string>8FAEF20D1266B2A600D88B84</string>
 											<string>8FAEF24F1266B43E00D88B84</string>
-											<string>8FAEF30D1266BAD700D88B84</string>
-											<string>8FAEF33D1266BB8600D88B84</string>
-											<string>8FAEF33E1266BB8600D88B84</string>
+											<string>8FAEF3451266BE7900D88B84</string>
+											<string>8FAEF39F1266C17000D88B84</string>
+											<string>8FAEF3A01266C17000D88B84</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -662,7 +662,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>8FAEF3401266BB8600D88B84</string>
 		<string>8FAEF1951266AF5F00D88B84</string>
 		<string>8FAEF1961266AF5F00D88B84</string>
 		<string>/Users/marcot/Documents/XCode/AFKPageFlipper/AFKPageFlipper.xcodeproj</string>

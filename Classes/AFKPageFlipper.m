@@ -163,10 +163,26 @@
 	animation.fromValue = [NSNumber numberWithFloat:startFlipAngle];
 	animation.toValue = [NSNumber numberWithFloat:endFlipAngle];
 	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	animation.delegate = self;
 	
 	[flipAnimationLayer addAnimation:animation forKey:Nil];
 }
 
+
+- (void) cleanupFlip {
+	[backgroundAnimationLayer removeFromSuperlayer];
+	[flipAnimationLayer removeFromSuperlayer];
+	
+	[self.currentView removeFromSuperview];
+	self.newView.alpha = 1;
+}
+
+#pragma mark -
+#pragma mark Animation management
+
+- (void)animationDidStop:(CAAnimation *) theAnimation finished:(BOOL) flag {
+	[self cleanupFlip];
+}
 
 #pragma mark -
 #pragma mark Properties

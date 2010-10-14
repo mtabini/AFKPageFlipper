@@ -37,15 +37,15 @@
 
 
 - (void) loadView {
-	self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]] autorelease];
+	[super loadView];
 	self.view.autoresizesSubviews = YES;
+	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	
 	AFKPageFlipper *flipper = [[[AFKPageFlipper alloc] initWithFrame:self.view.bounds] autorelease];
+	flipper.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	flipper.dataSource = self;
 	
 	[self.view addSubview:flipper];
-	
-	flipper.currentPage = 2;
 }
 
 
