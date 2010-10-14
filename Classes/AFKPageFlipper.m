@@ -156,31 +156,22 @@
 		startFlipAngle = -M_PI;
 		endFlipAngle = 0;
 	}
-
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-	
-	animation.duration = 1.0;
-	animation.fromValue = [NSNumber numberWithFloat:startFlipAngle];
-	animation.toValue = [NSNumber numberWithFloat:endFlipAngle];
-	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	animation.delegate = self;
-	
-	[flipAnimationLayer addAnimation:animation forKey:Nil];
 }
 
 
-- (void) cleanupFlipAndShowNewView:(BOOL) setNewView {
+- (void) cleanupFlip {
 	[backgroundAnimationLayer removeFromSuperlayer];
 	[flipAnimationLayer removeFromSuperlayer];
 	
 	backgroundAnimationLayer = Nil;
 	flipAnimationLayer = Nil;
 	
-	if (setNewView) {
+	if (setNewViewOnCompletion) {
 		[self.currentView removeFromSuperview];
-		self.currentView = Nil;
-		
-		self.newView.alpha = 1;
+		self.currentView = self.newView;
+		self.newView = Nil;
+
+		self.currentView.alpha = 1;
 	} else {
 		[self.newView removeFromSuperview];
 		self.newView = Nil;
@@ -193,12 +184,12 @@
 
 
 - (void)animationDidStop:(CAAnimation *) theAnimation finished:(BOOL) flag {
-	[self cleanupFlipAndShowNewView:flag];
+	[self cleanupFlip];
 }
 
 
 - (void)animationDidStop:(NSString *) animationID finished:(NSNumber *) finished context:(void *) context {
-	[self cleanupFlipAndShowNewView:[finished boolValue]];
+	[self cleanupFlip];
 }
 
 
@@ -210,11 +201,10 @@
 
 - (void) setCurrentView:(UIView *) value {
 	if (currentView) {
-		[currentView removeFromSuperview];
+		[currentView release];
 	}
 	
-	[self addSubview:value];
-	currentView = value;
+	currentView = [value retain];
 }
 
 
@@ -223,11 +213,10 @@
 
 - (void) setNewView:(UIView *) value {
 	if (newView) {
-		[newView removeFromSuperview];
+		[newView release];
 	}
 	
-	[self addSubview:value];
-	newView = value;
+	newView = [value retain];
 }
 
 
@@ -243,6 +232,7 @@
 	currentPage = value;
 	
 	self.newView = [self.dataSource viewForPage:value inFlipper:self];
+	[self addSubview:self.newView];
 	
 	return TRUE;
 }	
@@ -252,6 +242,7 @@
 		return;
 	}
 	
+	setNewViewOnCompletion = YES;
 	self.newView.alpha = 0;
 	
 	[UIView beginAnimations:@"" context:Nil];
@@ -263,6 +254,30 @@
 	
 	[UIView commitAnimations];
 } 
+
+
+- (void) setCurrentPage:(NSInteger) value animated:(BOOL) animated {
+	if (!animated) {
+		self.currentPage = value;
+		return;
+	}
+	
+	if ([self doSetCurrentPage:value]) {
+		[self initFlip];
+	}
+	
+	setNewViewOnCompletion = YES;
+	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+	
+	animation.duration = 1.0;
+	animation.fromValue = [NSNumber numberWithFloat:startFlipAngle];
+	animation.toValue = [NSNumber numberWithFloat:endFlipAngle];
+	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	animation.delegate = self;
+	
+	[flipAnimationLayer addAnimation:animation forKey:Nil];	
+}
 
 
 @synthesize dataSource;
@@ -296,6 +311,9 @@
 
 
 - (void)dealloc {
+	self.dataSource = Nil;
+	self.currentView = Nil;
+	self.newView = Nil;
     [super dealloc];
 }
 

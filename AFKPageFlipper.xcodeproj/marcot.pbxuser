@@ -23,7 +23,7 @@
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 8FBAC1871263F96200881579 /* AFKPageFlipper */;
-		activeSDKPreference = iphonesimulator4.2;
+		activeSDKPreference = iphoneos4.2;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* AFKPageFlipper */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* AFKPageFlipper */,
@@ -240,6 +240,39 @@
 			8FAEF3C41266C2FB00D88B84 /* PBXTextBookmark */ = 8FAEF3C41266C2FB00D88B84 /* PBXTextBookmark */;
 			8FAEF3CA1266C32100D88B84 /* PBXTextBookmark */ = 8FAEF3CA1266C32100D88B84 /* PBXTextBookmark */;
 			8FAEF3D51266C32A00D88B84 /* PBXTextBookmark */ = 8FAEF3D51266C32A00D88B84 /* PBXTextBookmark */;
+			8FAEF3DD1266C44100D88B84 /* PBXTextBookmark */ = 8FAEF3DD1266C44100D88B84 /* PBXTextBookmark */;
+			8FAEF3DE1266C44100D88B84 /* PBXTextBookmark */ = 8FAEF3DE1266C44100D88B84 /* PBXTextBookmark */;
+			8FAEF3DF1266C44100D88B84 /* PBXTextBookmark */ = 8FAEF3DF1266C44100D88B84 /* PBXTextBookmark */;
+			8FAEF3E11266C44900D88B84 /* PBXTextBookmark */ = 8FAEF3E11266C44900D88B84 /* PBXTextBookmark */;
+			8FAEF3E81266C4C400D88B84 /* PBXTextBookmark */ = 8FAEF3E81266C4C400D88B84 /* PBXTextBookmark */;
+			8FAEF3E91266C4C400D88B84 /* PBXTextBookmark */ = 8FAEF3E91266C4C400D88B84 /* PBXTextBookmark */;
+			8FAEF3EA1266C4C400D88B84 /* PBXTextBookmark */ = 8FAEF3EA1266C4C400D88B84 /* PBXTextBookmark */;
+			8FAEF3EB1266C4C400D88B84 /* PBXTextBookmark */ = 8FAEF3EB1266C4C400D88B84 /* PBXTextBookmark */;
+			8FAEF3EF1266C4E100D88B84 /* PBXTextBookmark */ = 8FAEF3EF1266C4E100D88B84 /* PBXTextBookmark */;
+			8FAEF3F71266C51600D88B84 /* PBXTextBookmark */ = 8FAEF3F71266C51600D88B84 /* PBXTextBookmark */;
+			8FAEF3F81266C51600D88B84 /* PBXTextBookmark */ = 8FAEF3F81266C51600D88B84 /* PBXTextBookmark */;
+			8FAEF3F91266C51600D88B84 /* PBXTextBookmark */ = 8FAEF3F91266C51600D88B84 /* PBXTextBookmark */;
+			8FAEF3FA1266C51600D88B84 /* PBXTextBookmark */ = 8FAEF3FA1266C51600D88B84 /* PBXTextBookmark */;
+			8FAEF3FE1266C52000D88B84 /* PBXTextBookmark */ = 8FAEF3FE1266C52000D88B84 /* PBXTextBookmark */;
+			8FAEF4021266C52A00D88B84 /* PBXTextBookmark */ = 8FAEF4021266C52A00D88B84 /* PBXTextBookmark */;
+			8FAEF4061266C53600D88B84 /* PBXTextBookmark */ = 8FAEF4061266C53600D88B84 /* PBXTextBookmark */;
+			8FAEF40A1266C55200D88B84 /* PBXTextBookmark */ = 8FAEF40A1266C55200D88B84 /* PBXTextBookmark */;
+			8FAEF40E1266C55A00D88B84 /* PBXTextBookmark */ = 8FAEF40E1266C55A00D88B84 /* PBXTextBookmark */;
+			8FAEF4121266C56A00D88B84 /* PBXTextBookmark */ = 8FAEF4121266C56A00D88B84 /* PBXTextBookmark */;
+			8FAEF4171266C59000D88B84 /* PBXTextBookmark */ = 8FAEF4171266C59000D88B84 /* PBXTextBookmark */;
+			8FAEF41D1266C5BD00D88B84 /* PBXTextBookmark */ = 8FAEF41D1266C5BD00D88B84 /* PBXTextBookmark */;
+			8FAEF4251266C5ED00D88B84 /* PBXTextBookmark */ = 8FAEF4251266C5ED00D88B84 /* PBXTextBookmark */;
+			8FAEF4261266C5ED00D88B84 /* PBXTextBookmark */ = 8FAEF4261266C5ED00D88B84 /* PBXTextBookmark */;
+			8FAEF42A1266C63500D88B84 /* PBXTextBookmark */ = 8FAEF42A1266C63500D88B84 /* PBXTextBookmark */;
+			8FAEF42E1266C67E00D88B84 /* PBXTextBookmark */ = 8FAEF42E1266C67E00D88B84 /* PBXTextBookmark */;
+			8FAEF42F1266C67E00D88B84 /* PBXTextBookmark */ = 8FAEF42F1266C67E00D88B84 /* PBXTextBookmark */;
+			8FAEF4301266C67E00D88B84 /* PBXTextBookmark */ = 8FAEF4301266C67E00D88B84 /* PBXTextBookmark */;
+			8FAEF4341266C69700D88B84 /* PBXTextBookmark */ = 8FAEF4341266C69700D88B84 /* PBXTextBookmark */;
+			8FAEF4381266C6BD00D88B84 /* PBXTextBookmark */ = 8FAEF4381266C6BD00D88B84 /* PBXTextBookmark */;
+			8FAEF43C1266C6C500D88B84 /* PBXTextBookmark */ = 8FAEF43C1266C6C500D88B84 /* PBXTextBookmark */;
+			8FAEF4441266C73900D88B84 /* PBXTextBookmark */ = 8FAEF4441266C73900D88B84 /* PBXTextBookmark */;
+			8FAEF4451266C73900D88B84 /* PBXTextBookmark */ = 8FAEF4451266C73900D88B84 /* PBXTextBookmark */;
+			8FAEF4461266C73900D88B84 /* PBXTextBookmark */ = 8FAEF4461266C73900D88B84 /* PBXTextBookmark */;
 			8FBAC19F1263F99100881579 = 8FBAC19F1263F99100881579 /* PBXBookmark */;
 			8FBAC1B61263FAD100881579 = 8FBAC1B61263FAD100881579 /* PBXTextBookmark */;
 			8FBAC1D81263FB4000881579 = 8FBAC1D81263FB4000881579 /* PBXTextBookmark */;
@@ -438,7 +471,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 162";
 		rLen = 0;
-		rLoc = 4224;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1899;
 		vrLoc = 2416;
@@ -448,7 +481,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 154";
 		rLen = 0;
-		rLoc = 3872;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1804;
 		vrLoc = 3009;
@@ -458,7 +491,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 156";
 		rLen = 0;
-		rLoc = 3900;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1805;
 		vrLoc = 3009;
@@ -558,7 +591,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 299";
 		rLen = 0;
-		rLoc = 6282;
+		rLoc = 6476;
 		rType = 0;
 		vrLen = 1043;
 		vrLoc = 6531;
@@ -568,7 +601,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 155;
@@ -578,7 +611,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 155;
@@ -588,7 +621,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 155;
@@ -598,7 +631,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 299";
 		rLen = 0;
-		rLoc = 6282;
+		rLoc = 6476;
 		rType = 0;
 		vrLen = 1043;
 		vrLoc = 6531;
@@ -628,7 +661,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 155;
@@ -648,7 +681,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 228";
 		rLen = 0;
-		rLoc = 6283;
+		rLoc = 6477;
 		rType = 0;
 		vrLen = 1043;
 		vrLoc = 4442;
@@ -658,7 +691,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 212";
 		rLen = 0;
-		rLoc = 6082;
+		rLoc = 5600;
 		rType = 0;
 		vrLen = 1058;
 		vrLoc = 4422;
@@ -872,7 +905,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 170";
 		rLen = 0;
-		rLoc = 4224;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1966;
 		vrLoc = 2446;
@@ -892,7 +925,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 168";
 		rLen = 0;
-		rLoc = 4168;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1819;
 		vrLoc = 2701;
@@ -1062,7 +1095,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 168";
 		rLen = 0;
-		rLoc = 4224;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 3169;
@@ -1072,7 +1105,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 166";
 		rLen = 0;
-		rLoc = 4168;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 2008;
 		vrLoc = 2253;
@@ -1082,7 +1115,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 166";
 		rLen = 0;
-		rLoc = 4224;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1927;
 		vrLoc = 2253;
@@ -1102,7 +1135,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 166";
 		rLen = 0;
-		rLoc = 4168;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1419;
 		vrLoc = 3072;
@@ -1132,7 +1165,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 236";
 		rLen = 0;
-		rLoc = 6411;
+		rLoc = 6605;
 		rType = 0;
 		vrLen = 1119;
 		vrLoc = 4320;
@@ -1302,7 +1335,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 169";
 		rLen = 0;
-		rLoc = 3900;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1569;
 		vrLoc = 3158;
@@ -1312,7 +1345,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 232";
 		rLen = 0;
-		rLoc = 6283;
+		rLoc = 6477;
 		rType = 0;
 		vrLen = 1056;
 		vrLoc = 4632;
@@ -1322,7 +1355,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 155;
@@ -1332,7 +1365,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 155;
@@ -1342,7 +1375,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1363;
 		vrLoc = 155;
@@ -1352,7 +1385,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 232";
 		rLen = 0;
-		rLoc = 6283;
+		rLoc = 6477;
 		rType = 0;
 		vrLen = 1051;
 		vrLoc = 4632;
@@ -1382,7 +1415,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 172";
 		rLen = 0;
-		rLoc = 4165;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1763;
 		vrLoc = 2967;
@@ -1392,7 +1425,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 172";
 		rLen = 0;
-		rLoc = 4132;
+		rLoc = 3778;
 		rType = 0;
 		vrLen = 1770;
 		vrLoc = 2967;
@@ -1512,7 +1545,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1427;
 		vrLoc = 91;
@@ -1522,7 +1555,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 45";
 		rLen = 0;
-		rLoc = 1036;
+		rLoc = 1020;
 		rType = 0;
 		vrLen = 1573;
 		vrLoc = 217;
@@ -1532,7 +1565,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 45";
 		rLen = 0;
-		rLoc = 1036;
+		rLoc = 1020;
 		rType = 0;
 		vrLen = 1574;
 		vrLoc = 217;
@@ -1552,7 +1585,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 176";
 		rLen = 0;
-		rLoc = 4253;
+		rLoc = 3802;
 		rType = 0;
 		vrLen = 1516;
 		vrLoc = 3221;
@@ -1562,7 +1595,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 184";
 		rLen = 0;
-		rLoc = 4253;
+		rLoc = 3802;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 3221;
@@ -1572,7 +1605,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 177";
 		rLen = 0;
-		rLoc = 4253;
+		rLoc = 3802;
 		rType = 0;
 		vrLen = 1570;
 		vrLoc = 3221;
@@ -1582,7 +1615,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 177";
 		rLen = 0;
-		rLoc = 4253;
+		rLoc = 3802;
 		rType = 0;
 		vrLen = 1592;
 		vrLoc = 3221;
@@ -1592,7 +1625,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 45";
 		rLen = 0;
-		rLoc = 1036;
+		rLoc = 1020;
 		rType = 0;
 		vrLen = 1574;
 		vrLoc = 217;
@@ -1862,7 +1895,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 52";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 28;
@@ -1872,7 +1905,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 50";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1563;
 		vrLoc = 28;
@@ -1882,7 +1915,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 49";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1571;
 		vrLoc = 28;
@@ -1892,7 +1925,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 177";
 		rLen = 0;
-		rLoc = 4253;
+		rLoc = 3802;
 		rType = 0;
 		vrLen = 1592;
 		vrLoc = 3221;
@@ -1902,7 +1935,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 177";
 		rLen = 0;
-		rLoc = 4253;
+		rLoc = 3802;
 		rType = 0;
 		vrLen = 1056;
 		vrLoc = 4813;
@@ -1912,7 +1945,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 260";
 		rLen = 0;
-		rLoc = 6051;
+		rLoc = 5569;
 		rType = 0;
 		vrLen = 1200;
 		vrLoc = 5156;
@@ -1922,7 +1955,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 252";
 		rLen = 0;
-		rLoc = 5790;
+		rLoc = 5277;
 		rType = 0;
 		vrLen = 1194;
 		vrLoc = 5156;
@@ -1932,7 +1965,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 255";
 		rLen = 0;
-		rLoc = 5821;
+		rLoc = 5339;
 		rType = 0;
 		vrLen = 1219;
 		vrLoc = 5156;
@@ -1942,7 +1975,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 258";
 		rLen = 0;
-		rLoc = 5898;
+		rLoc = 5416;
 		rType = 0;
 		vrLen = 1219;
 		vrLoc = 5156;
@@ -1952,7 +1985,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 262";
 		rLen = 0;
-		rLoc = 6027;
+		rLoc = 5545;
 		rType = 0;
 		vrLen = 1221;
 		vrLoc = 5156;
@@ -1962,7 +1995,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 277";
 		rLen = 0;
-		rLoc = 6283;
+		rLoc = 6477;
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 5156;
@@ -1972,7 +2005,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 258";
 		rLen = 0;
-		rLoc = 5898;
+		rLoc = 5416;
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 5156;
@@ -1982,7 +2015,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 258";
 		rLen = 0;
-		rLoc = 5898;
+		rLoc = 5416;
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 5156;
@@ -2002,7 +2035,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 258";
 		rLen = 0;
-		rLoc = 5898;
+		rLoc = 5416;
 		rType = 0;
 		vrLen = 311;
 		vrLoc = 5702;
@@ -2019,6 +2052,7 @@
 	};
 	8FAEF3C31266C2FB00D88B84 /* asm __kill  0x903b7eec */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = text;
 		path = "asm __kill  0x903b7eec";
 		sourceTree = "<group>";
 	};
@@ -2041,8 +2075,8 @@
 		isa = PBXTextBookmark;
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 172";
-		rLen = 15;
-		rLoc = 4238;
+		rLen = 11;
+		rLoc = 3791;
 		rType = 0;
 		vrLen = 1663;
 		vrLoc = 3375;
@@ -2052,10 +2086,340 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 304";
 		rLen = 0;
-		rLoc = 6606;
+		rLoc = 6870;
 		rType = 0;
 		vrLen = 1767;
 		vrLoc = 2919;
+	};
+	8FAEF3DD1266C44100D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8111264315F00881579 /* AFKPageFlipper.h */;
+		name = "AFKPageFlipper.h: 45";
+		rLen = 0;
+		rLoc = 885;
+		rType = 0;
+		vrLen = 1025;
+		vrLoc = 0;
+	};
+	8FAEF3DE1266C44100D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 268";
+		rLen = 0;
+		rLoc = 5827;
+		rType = 0;
+		vrLen = 1469;
+		vrLoc = 4960;
+	};
+	8FAEF3DF1266C44100D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 245";
+		rLen = 0;
+		rLoc = 5284;
+		rType = 0;
+		vrLen = 1515;
+		vrLoc = 4960;
+	};
+	8FAEF3E11266C44900D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 245";
+		rLen = 0;
+		rLoc = 5284;
+		rType = 0;
+		vrLen = 1513;
+		vrLoc = 4960;
+	};
+	8FAEF3E81266C4C400D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 245";
+		rLen = 0;
+		rLoc = 5284;
+		rType = 0;
+		vrLen = 1513;
+		vrLoc = 4960;
+	};
+	8FAEF3E91266C4C400D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC1A61263F9ED00881579 /* MainController.h */;
+		name = "MainController.h: 16";
+		rLen = 0;
+		rLoc = 340;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 0;
+	};
+	8FAEF3EA1266C4C400D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
+		name = "MainController.m: 53";
+		rLen = 0;
+		rLoc = 938;
+		rType = 0;
+		vrLen = 1573;
+		vrLoc = 249;
+	};
+	8FAEF3EB1266C4C400D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
+		name = "MainController.m: 40";
+		rLen = 0;
+		rLoc = 707;
+		rType = 0;
+		vrLen = 1595;
+		vrLoc = 249;
+	};
+	8FAEF3EF1266C4E100D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
+		name = "MainController.m: 40";
+		rLen = 0;
+		rLoc = 707;
+		rType = 0;
+		vrLen = 1635;
+		vrLoc = 249;
+	};
+	8FAEF3F71266C51600D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
+		name = "MainController.m: 40";
+		rLen = 0;
+		rLoc = 707;
+		rType = 0;
+		vrLen = 1638;
+		vrLoc = 249;
+	};
+	8FAEF3F81266C51600D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8111264315F00881579 /* AFKPageFlipper.h */;
+		name = "AFKPageFlipper.h: 51";
+		rLen = 0;
+		rLoc = 1087;
+		rType = 0;
+		vrLen = 1094;
+		vrLoc = 0;
+	};
+	8FAEF3F91266C51600D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 319";
+		rLen = 0;
+		rLoc = 6870;
+		rType = 0;
+		vrLen = 1230;
+		vrLoc = 5562;
+	};
+	8FAEF3FA1266C51600D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 126";
+		rLen = 0;
+		rLoc = 2765;
+		rType = 0;
+		vrLen = 1967;
+		vrLoc = 1815;
+	};
+	8FAEF3FE1266C52000D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 118";
+		rLen = 0;
+		rLoc = 2498;
+		rType = 0;
+		vrLen = 1969;
+		vrLoc = 1815;
+	};
+	8FAEF4021266C52A00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 126";
+		rLen = 0;
+		rLoc = 2765;
+		rType = 0;
+		vrLen = 1967;
+		vrLoc = 1815;
+	};
+	8FAEF4061266C53600D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 122";
+		rLen = 0;
+		rLoc = 2660;
+		rType = 0;
+		vrLen = 1968;
+		vrLoc = 1815;
+	};
+	8FAEF40A1266C55200D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 146";
+		rLen = 0;
+		rLoc = 3329;
+		rType = 0;
+		vrLen = 2019;
+		vrLoc = 1815;
+	};
+	8FAEF40E1266C55A00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 118";
+		rLen = 0;
+		rLoc = 2498;
+		rType = 0;
+		vrLen = 2017;
+		vrLoc = 1815;
+	};
+	8FAEF4121266C56A00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 118";
+		rLen = 0;
+		rLoc = 2498;
+		rType = 0;
+		vrLen = 1988;
+		vrLoc = 1285;
+	};
+	8FAEF4171266C59000D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 236";
+		rLen = 0;
+		rLoc = 5167;
+		rType = 0;
+		vrLen = 1416;
+		vrLoc = 616;
+	};
+	8FAEF41D1266C5BD00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 174";
+		rLen = 0;
+		rLoc = 4112;
+		rType = 0;
+		vrLen = 1459;
+		vrLoc = 3068;
+	};
+	8FAEF4251266C5ED00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 174";
+		rLen = 0;
+		rLoc = 4112;
+		rType = 0;
+		vrLen = 1765;
+		vrLoc = 2435;
+	};
+	8FAEF4261266C5ED00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 174";
+		rLen = 0;
+		rLoc = 4112;
+		rType = 0;
+		vrLen = 1762;
+		vrLoc = 2435;
+	};
+	8FAEF42A1266C63500D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 235";
+		rLen = 12;
+		rLoc = 5066;
+		rType = 0;
+		vrLen = 1170;
+		vrLoc = 4654;
+	};
+	8FAEF42E1266C67E00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8111264315F00881579 /* AFKPageFlipper.h */;
+		name = "AFKPageFlipper.h: 51";
+		rLen = 0;
+		rLoc = 1087;
+		rType = 0;
+		vrLen = 1094;
+		vrLoc = 0;
+	};
+	8FAEF42F1266C67E00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 315";
+		rLen = 0;
+		rLoc = 6839;
+		rType = 0;
+		vrLen = 1199;
+		vrLoc = 5653;
+	};
+	8FAEF4301266C67E00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 317";
+		rLen = 0;
+		rLoc = 6839;
+		rType = 0;
+		vrLen = 1065;
+		vrLoc = 3;
+	};
+	8FAEF4341266C69700D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 172";
+		rLen = 0;
+		rLoc = 4071;
+		rType = 0;
+		vrLen = 1332;
+		vrLoc = 3329;
+	};
+	8FAEF4381266C6BD00D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 204";
+		rLen = 0;
+		rLoc = 4639;
+		rType = 0;
+		vrLen = 1129;
+		vrLoc = 4502;
+	};
+	8FAEF43C1266C6C500D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 207";
+		rLen = 0;
+		rLoc = 4647;
+		rType = 0;
+		vrLen = 1166;
+		vrLoc = 4526;
+	};
+	8FAEF4441266C73900D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
+		name = "AFKPageFlipper.m: 172";
+		rLen = 0;
+		rLoc = 4092;
+		rType = 0;
+		vrLen = 1326;
+		vrLoc = 3319;
+	};
+	8FAEF4451266C73900D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
+		name = "MainController.m: 40";
+		rLen = 0;
+		rLoc = 707;
+		rType = 0;
+		vrLen = 1621;
+		vrLoc = 249;
+	};
+	8FAEF4461266C73900D88B84 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
+		name = "MainController.m: 49";
+		rLen = 0;
+		rLoc = 1171;
+		rType = 0;
+		vrLen = 1422;
+		vrLoc = 249;
 	};
 	8FBAC1871263F96200881579 /* AFKPageFlipper */ = {
 		isa = PBXExecutable;
@@ -2123,16 +2487,16 @@
 	};
 	8FBAC1A61263F9ED00881579 /* MainController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1652, 1041}}";
-			sepNavSelRange = "{300, 0}";
-			sepNavVisRange = "{0, 321}";
+			sepNavIntBoundsRect = "{{0, 0}, {1652, 1018}}";
+			sepNavSelRange = "{340, 0}";
+			sepNavVisRange = "{0, 349}";
 		};
 	};
 	8FBAC1A71263F9ED00881579 /* MainController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1859, 1120}}";
-			sepNavSelRange = "{791, 0}";
-			sepNavVisRange = "{736, 299}";
+			sepNavIntBoundsRect = "{{0, 0}, {1652, 1264}}";
+			sepNavSelRange = "{1171, 0}";
+			sepNavVisRange = "{249, 1422}";
 		};
 	};
 	8FBAC1B61263FAD100881579 /* PBXTextBookmark */ = {
@@ -2167,16 +2531,16 @@
 	};
 	8FBAC8111264315F00881579 /* AFKPageFlipper.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1652, 1018}}";
-			sepNavSelRange = "{742, 0}";
-			sepNavVisRange = "{0, 1111}";
+			sepNavIntBoundsRect = "{{0, 0}, {1652, 993}}";
+			sepNavSelRange = "{1087, 0}";
+			sepNavVisRange = "{0, 1094}";
 		};
 	};
 	8FBAC8121264315F00881579 /* AFKPageFlipper.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1652, 4384}}";
-			sepNavSelRange = "{6606, 0}";
-			sepNavVisRange = "{2919, 1767}";
+			sepNavIntBoundsRect = "{{0, 0}, {1652, 5120}}";
+			sepNavSelRange = "{4092, 0}";
+			sepNavVisRange = "{3319, 1326}";
 		};
 	};
 	8FBAC89A1264375000881579 /* PBXTextBookmark */ = {
@@ -2214,7 +2578,7 @@
 		fRef = 8FBAC1A71263F9ED00881579 /* MainController.m */;
 		name = "MainController.m: 48";
 		rLen = 0;
-		rLoc = 1187;
+		rLoc = 1171;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 155;
@@ -2234,7 +2598,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 133";
 		rLen = 0;
-		rLoc = 4975;
+		rLoc = 4487;
 		rType = 0;
 		vrLen = 1868;
 		vrLoc = 1953;
@@ -2244,7 +2608,7 @@
 		fRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */;
 		name = "AFKPageFlipper.m: 133";
 		rLen = 0;
-		rLoc = 4975;
+		rLoc = 4487;
 		rType = 0;
 		vrLen = 1410;
 		vrLoc = 657;

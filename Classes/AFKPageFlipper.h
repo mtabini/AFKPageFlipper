@@ -42,16 +42,12 @@ typedef enum {
 	float startFlipAngle;
 	float endFlipAngle;
 
-	/*
-	CALayer *currentLeftLayer;
-	CALayer *currentRightLayer;
-	
-	CALayer *newLeftLayer;
-	CALayer *newRightLayer;
-	*/
+	BOOL setNewViewOnCompletion;
 }
 
 @property (nonatomic,retain) NSObject <AFKPageFlipperDataSource> *dataSource;
 @property (nonatomic,assign) NSInteger currentPage;
+
+- (void) setCurrentPage:(NSInteger) value animated:(BOOL) animated;
 
 @end

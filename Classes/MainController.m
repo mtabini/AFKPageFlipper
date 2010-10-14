@@ -41,7 +41,7 @@
 	self.view.autoresizesSubviews = YES;
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	
-	AFKPageFlipper *flipper = [[[AFKPageFlipper alloc] initWithFrame:self.view.bounds] autorelease];
+	flipper = [[[AFKPageFlipper alloc] initWithFrame:self.view.bounds] autorelease];
 	flipper.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	flipper.dataSource = self;
 	

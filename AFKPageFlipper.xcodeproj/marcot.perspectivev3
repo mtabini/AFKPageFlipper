@@ -278,8 +278,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>4</integer>
-									<integer>2</integer>
+									<integer>7</integer>
+									<integer>5</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -320,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>8FBAC1921263F96A00881579</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>AFKPageFlipper.m</string>
+								<string>MainController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,23 +328,23 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>8FBAC1931263F96A00881579</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>AFKPageFlipper.m</string>
+										<string>MainController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>8FAEF3D51266C32A00D88B84</string>
+										<string>8FAEF4461266C73900D88B84</string>
 										<key>history</key>
 										<array>
 											<string>8FBAC1B61263FAD100881579</string>
 											<string>8FBAC1D81263FB4000881579</string>
 											<string>8FBAC1E01263FBC800881579</string>
 											<string>8FBAC89A1264375000881579</string>
-											<string>8FAEF1871266AF5F00D88B84</string>
-											<string>8FAEF20D1266B2A600D88B84</string>
 											<string>8FAEF24F1266B43E00D88B84</string>
 											<string>8FAEF3451266BE7900D88B84</string>
-											<string>8FAEF39F1266C17000D88B84</string>
-											<string>8FAEF3A01266C17000D88B84</string>
+											<string>8FAEF3E91266C4C400D88B84</string>
+											<string>8FAEF42E1266C67E00D88B84</string>
+											<string>8FAEF4441266C73900D88B84</string>
+											<string>8FAEF4451266C73900D88B84</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -662,7 +662,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>8FAEF3D61266C32A00D88B84</string>
+		<string>8FAEF4471266C73900D88B84</string>
 		<string>8FAEF3CC1266C32100D88B84</string>
 		<string>8FAEF1951266AF5F00D88B84</string>
 		<string>8FAEF1961266AF5F00D88B84</string>

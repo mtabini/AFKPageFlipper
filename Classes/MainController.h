@@ -12,6 +12,8 @@
 
 @interface MainController : UIViewController <AFKPageFlipperDataSource> {
 	CGPDFDocumentRef pdfDocument;
+	
+	AFKPageFlipper *flipper;
 }
 
 @end
