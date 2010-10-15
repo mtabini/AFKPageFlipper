@@ -19,7 +19,7 @@
 
 
 - (NSInteger) numberOfPagesForPageFlipper:(AFKPageFlipper *)pageFlipper {
-	return CGPDFDocumentGetNumberOfPages(pdfDocument);
+	return self.view.bounds.size.width > self.view.bounds.size.height ? ceil((float) CGPDFDocumentGetNumberOfPages(pdfDocument) / 2) : CGPDFDocumentGetNumberOfPages(pdfDocument);
 }
 
 

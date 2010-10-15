@@ -31,6 +31,7 @@ typedef enum {
 @interface AFKPageFlipper : UIView {
 	NSObject <AFKPageFlipperDataSource> *dataSource;
 	NSInteger currentPage;
+	NSInteger numberOfPages;
 	
 	UIView *currentView;
 	UIView *newView;
@@ -41,8 +42,10 @@ typedef enum {
 	AFKPageFlipperDirection flipDirection;
 	float startFlipAngle;
 	float endFlipAngle;
+	float currentAngle;
 
 	BOOL setNewViewOnCompletion;
+	BOOL animating;
 }
 
 @property (nonatomic,retain) NSObject <AFKPageFlipperDataSource> *dataSource;

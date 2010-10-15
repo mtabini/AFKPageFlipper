@@ -132,14 +132,13 @@
 		frontLayer.contents = (id) [newImage CGImage];
 		frontLayer.contentsGravity = kCAGravityRight;
 		
-		CATransform3D transform = CATransform3DIdentity;
+		CATransform3D transform = CATransform3DMakeRotation(0.0, 0.0, 1.0, 0.0);
 		transform.m34 = 1.0f / 2500.0f;
-		transform = CATransform3DRotate(transform, -M_PI, 0.0, 1.0, 0.0);
 		
 		flipAnimationLayer.transform = transform;
 		
-		startFlipAngle = 0;
-		startFlipAngle = -M_PI;
+		currentAngle = startFlipAngle = 0;
+		endFlipAngle = -M_PI;
 	} else {
 		backLayer.contentsGravity = kCAGravityLeft;
 		backLayer.contents = (id) [newImage CGImage];
@@ -147,13 +146,12 @@
 		frontLayer.contents = (id) [currentImage CGImage];
 		frontLayer.contentsGravity = kCAGravityRight;
 		
-		CATransform3D transform = CATransform3DIdentity;
+		CATransform3D transform = CATransform3DMakeRotation(-M_PI / 1.1, 0.0, 1.0, 0.0);
 		transform.m34 = 1.0f / 2500.0f;
-		transform = CATransform3DRotate(transform, 0, 0.0, 1.0, 0.0);
 		
 		flipAnimationLayer.transform = transform;
 		
-		startFlipAngle = -M_PI;
+		currentAngle = startFlipAngle = -M_PI;
 		endFlipAngle = 0;
 	}
 }
@@ -166,26 +164,54 @@
 	backgroundAnimationLayer = Nil;
 	flipAnimationLayer = Nil;
 	
+	animating = NO;
+	
 	if (setNewViewOnCompletion) {
 		[self.currentView removeFromSuperview];
 		self.currentView = self.newView;
 		self.newView = Nil;
-
-		self.currentView.alpha = 1;
 	} else {
 		[self.newView removeFromSuperview];
 		self.newView = Nil;
 	}
 
+	self.currentView.alpha = 1;
 }
+
+
+- (void) setFlipProgress:(float) progress setDelegate:(BOOL) setDelegate animate:(BOOL) animate {
+	float newAngle = startFlipAngle + progress * (endFlipAngle - startFlipAngle);
+	
+	float duration = animate ? 0.5 * fabs((newAngle - currentAngle) / (endFlipAngle - startFlipAngle)) : 0;
+	
+	currentAngle = newAngle;
+	
+	CATransform3D endTransform = CATransform3DIdentity;
+	endTransform.m34 = 1.0f / 2500.0f;
+	endTransform = CATransform3DRotate(endTransform, newAngle, 0.0, 1.0, 0.0);	
+	
+	[flipAnimationLayer removeAllAnimations];
+							
+	[CATransaction begin];
+	[CATransaction setAnimationDuration:duration];
+	
+	flipAnimationLayer.transform = endTransform;
+	
+	[CATransaction commit];
+	
+	if (setDelegate) {
+		[self performSelector:@selector(cleanupFlip) withObject:Nil afterDelay:duration];
+	}
+}
+
+
+- (void) flipPage {
+	[self setFlipProgress:1.0 setDelegate:YES animate:YES];
+}
+
 
 #pragma mark -
 #pragma mark Animation management
-
-
-- (void)animationDidStop:(CAAnimation *) theAnimation finished:(BOOL) flag {
-	[self cleanupFlip];
-}
 
 
 - (void)animationDidStop:(NSString *) animationID finished:(NSNumber *) finished context:(void *) context {
@@ -228,7 +254,8 @@
 		return FALSE;
 	}
 	
-	flipDirection = (value < currentPage ? AFKPageFlipperDirectionRight : AFKPageFlipperDirectionLeft);
+	flipDirection = value < currentPage ? AFKPageFlipperDirectionRight : AFKPageFlipperDirectionLeft;
+	
 	currentPage = value;
 	
 	self.newView = [self.dataSource viewForPage:value inFlipper:self];
@@ -243,6 +270,8 @@
 	}
 	
 	setNewViewOnCompletion = YES;
+	animating = YES;
+	
 	self.newView.alpha = 0;
 	
 	[UIView beginAnimations:@"" context:Nil];
@@ -262,21 +291,16 @@
 		return;
 	}
 	
-	if ([self doSetCurrentPage:value]) {
-		[self initFlip];
+	if (![self doSetCurrentPage:value]) {
+		return;
 	}
 	
+	[self initFlip];
+	
 	setNewViewOnCompletion = YES;
-	
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-	
-	animation.duration = 1.0;
-	animation.fromValue = [NSNumber numberWithFloat:startFlipAngle];
-	animation.toValue = [NSNumber numberWithFloat:endFlipAngle];
-	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	animation.delegate = self;
-	
-	[flipAnimationLayer addAnimation:animation forKey:Nil];	
+	animating = YES;
+
+	[self performSelector:@selector(flipPage) withObject:Nil afterDelay:0.001];
 }
 
 
@@ -289,7 +313,127 @@
 	}
 	
 	dataSource = [value retain];
+	numberOfPages = [dataSource numberOfPagesForPageFlipper:self];
 	self.currentPage = 1;
+}
+
+
+#pragma mark -
+#pragma mark Touch management
+
+
+- (void) tapped:(UITapGestureRecognizer *) recognizer {
+	if (animating) {
+		return;
+	}
+	
+	if (recognizer.state == UIGestureRecognizerStateRecognized) {
+		NSInteger newPage;
+		
+		if ([recognizer locationInView:self].x < (self.bounds.size.width - self.bounds.origin.x) / 2) {
+			newPage = MAX(1, self.currentPage - 1);
+		} else {
+			newPage = MIN(self.currentPage + 1, numberOfPages);
+		}
+		
+		[self setCurrentPage:newPage animated:YES];
+	}
+}
+
+
+- (void) panned:(UIPanGestureRecognizer *) recognizer {
+	static BOOL hasFailed;
+	static BOOL initialized;
+	
+	static NSInteger oldPage;
+
+	float translation = [recognizer translationInView:self].x;
+	
+	float progress = translation / self.bounds.size.width;
+	
+	if (flipDirection == AFKPageFlipperDirectionLeft) {
+		progress = MIN(progress, 0);
+	} else {
+		progress = MAX(progress, 0);
+	}
+	
+	switch (recognizer.state) {
+		case UIGestureRecognizerStateBegan:
+			hasFailed = FALSE;
+			initialized = FALSE;
+			break;
+			
+			
+		case UIGestureRecognizerStateChanged:
+			
+			if (hasFailed) {
+				return;
+			}
+			
+			if (!initialized) {
+				oldPage = self.currentPage;
+				
+				if (translation > 0) {
+					if (self.currentPage > 1) {
+						[self doSetCurrentPage:self.currentPage - 1];
+					} else {
+						hasFailed = TRUE;
+						return;
+					}
+				} else {
+					if (self.currentPage < numberOfPages) {
+						[self doSetCurrentPage:self.currentPage + 1];
+					} else {
+						hasFailed = TRUE;
+						return;
+					}
+				}
+				
+				hasFailed = NO;
+				initialized = TRUE;
+				animating = YES;
+				setNewViewOnCompletion = NO;
+				
+				[self initFlip];
+			}
+			
+			[self setFlipProgress:fabs(progress) setDelegate:NO animate:NO];
+			
+			break;
+			
+			
+		case UIGestureRecognizerStateFailed:
+			[self setFlipProgress:0.0 setDelegate:YES animate:YES];
+			currentPage = oldPage;
+			break;
+			
+		case UIGestureRecognizerStateRecognized:
+			if (fabs((translation + [recognizer velocityInView:self].x / 4) / self.bounds.size.width) > 0.5) {
+				setNewViewOnCompletion = YES;
+				[self setFlipProgress:1.0 setDelegate:YES animate:YES];
+			} else {
+				[self setFlipProgress:0.0 setDelegate:YES animate:YES];
+				currentPage = oldPage;
+			}
+
+			break;
+	}
+}
+
+
+#pragma mark -
+#pragma mark Frame management
+
+
+- (void) setFrame:(CGRect) value {
+	super.frame = value;
+
+	numberOfPages = [dataSource numberOfPagesForPageFlipper:self];
+	
+	if (self.currentPage > numberOfPages) {
+		self.currentPage = numberOfPages;
+	}
+	
 }
 
 
@@ -304,7 +448,13 @@
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        // Initialization code
+		UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)] autorelease];
+		UIPanGestureRecognizer *panRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)] autorelease];
+		
+		[tapRecognizer requireGestureRecognizerToFail:panRecognizer];
+		
+        [self addGestureRecognizer:tapRecognizer];
+		[self addGestureRecognizer:panRecognizer];
     }
     return self;
 }
