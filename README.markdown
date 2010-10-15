@@ -7,7 +7,7 @@ Each subview that needs to be shown by the subview can contain any arbitrary con
 
 AFKPageFlipper has no external dependencies, with the exception of Quartz Core. The flipping functionality can be added to your project by simply importing two files: AFKPageFlipper.h and AFKPageFlipper.m.
 
-You can see AFKPageFlipper in action [http://screencast.com/t/0vo8rdGZ](here). Please note that the poor frame rate is due to the recording software, and not to the performance of the class. On either the actual simulator or a physical iPad or iPhone, the class is capable of performing full-screen transitions in both landscape and portrait at 60fps without any problems that I've been able to detect.
+You can see AFKPageFlipper in action [here](http://screencast.com/t/0vo8rdGZ). Please note that the poor frame rate is due to the recording software, and not to the performance of the class. On either the actual simulator or a physical iPad or iPhone, the class is capable of performing full-screen transitions in both landscape and portrait at 60fps without any problems that I've been able to detect.
 
 
 Usage
