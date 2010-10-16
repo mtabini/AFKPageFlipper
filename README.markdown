@@ -40,7 +40,7 @@ Changing pages programmatically
 
 There are two ways to change the current page programmatically. The first is to set the currentPage property of an AFKPageFlipper instance; this results in a cross-fade from the current page (if any) to the new page. Please note that the class only makes basic data integrity checks: passing a page number that's higher than the maximum number of pages or less than one may result in undefined behaviour.
 
-If you prefer to use the flip transition when changing pages programmatically, you can use the -setCurrentPage:animated: method instead. Passing YES as the value of *animated* will result in the page change to occur through a flip transition. Passing NO will result in a cross-fade.
+If you prefer to use the flip transition when changing pages programmatically, you can use the -setCurrentPage:animated: method instead. Passing YES as the value of *animated* will result in the page change to occur through a flip transition. Passing NO will result in the new view simply appearing in place without any transition.
 
 
 A note on orientation

@@ -286,21 +286,20 @@
 
 
 - (void) setCurrentPage:(NSInteger) value animated:(BOOL) animated {
-	if (!animated) {
-		self.currentPage = value;
-		return;
-	}
-	
 	if (![self doSetCurrentPage:value]) {
 		return;
 	}
 	
-	[self initFlip];
-	
 	setNewViewOnCompletion = YES;
 	animating = YES;
+	
+	if (animated) {
+		[self initFlip];
+		[self performSelector:@selector(flipPage) withObject:Nil afterDelay:0.001];
+	} else {
+		[self animationDidStop:Nil finished:[NSNumber numberWithBool:NO] context:Nil];
+	}
 
-	[self performSelector:@selector(flipPage) withObject:Nil afterDelay:0.001];
 }
 
 
