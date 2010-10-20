@@ -317,12 +317,26 @@
 }
 
 
+@synthesize disabled;
+
+
+- (void) setDisabled:(BOOL) value {
+	disabled = value;
+	
+	self.userInteractionEnabled = !value;
+	
+	for (UIGestureRecognizer *recognizer in self.gestureRecognizers) {
+		recognizer.enabled = !value;
+	}
+}
+
+
 #pragma mark -
 #pragma mark Touch management
 
 
 - (void) tapped:(UITapGestureRecognizer *) recognizer {
-	if (animating) {
+	if (animating || self.disabled) {
 		return;
 	}
 	
