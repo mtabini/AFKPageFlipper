@@ -394,7 +394,7 @@
 						return;
 					}
 				} else {
-					if (self.currentPage < numberOfPages) {
+					if (self.currentPage < numberOfPages - 1) {
 						[self doSetCurrentPage:self.currentPage + 1];
 					} else {
 						hasFailed = TRUE;
