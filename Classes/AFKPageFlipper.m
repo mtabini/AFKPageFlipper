@@ -374,6 +374,8 @@
 		case UIGestureRecognizerStateBegan:
 			hasFailed = FALSE;
 			initialized = FALSE;
+			animating = NO;
+			setNewViewOnCompletion = NO;
 			break;
 			
 			
@@ -421,6 +423,13 @@
 			break;
 			
 		case UIGestureRecognizerStateRecognized:
+			if (hasFailed) {
+				[self setFlipProgress:0.0 setDelegate:YES animate:YES];
+				currentPage = oldPage;
+				
+				return;
+			}
+			
 			if (fabs((translation + [recognizer velocityInView:self].x / 4) / self.bounds.size.width) > 0.5) {
 				setNewViewOnCompletion = YES;
 				[self setFlipProgress:1.0 setDelegate:YES animate:YES];
