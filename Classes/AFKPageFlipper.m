@@ -317,6 +317,7 @@
 	
 	dataSource = [value retain];
 	numberOfPages = [dataSource numberOfPagesForPageFlipper:self];
+    currentPage = 0;
 	self.currentPage = 1;
 }
 
