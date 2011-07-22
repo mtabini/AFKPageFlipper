@@ -24,12 +24,13 @@
 
 
 - (UIImage *) imageByRenderingView {
-	
-	UIGraphicsBeginImageContext(self.bounds.size);
+    CGFloat oldAlpha = self.alpha;
+    self.alpha = 1;
+    UIGraphicsBeginImageContext(self.bounds.size);
 	[self.layer renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
-	
+    self.alpha = oldAlpha;
 	return resultingImage;
 }
 
