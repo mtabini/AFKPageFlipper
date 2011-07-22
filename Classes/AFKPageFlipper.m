@@ -180,6 +180,10 @@
 
 
 - (void) setFlipProgress:(float) progress setDelegate:(BOOL) setDelegate animate:(BOOL) animate {
+    if (animate) {
+        animating = YES;
+    }
+    
 	float newAngle = startFlipAngle + progress * (endFlipAngle - startFlipAngle);
 	
 	float duration = animate ? 0.5 * fabs((newAngle - currentAngle) / (endFlipAngle - startFlipAngle)) : 0;
@@ -355,6 +359,10 @@
 
 
 - (void) panned:(UIPanGestureRecognizer *) recognizer {
+    if (animating) {
+        return;
+    }
+    
 	static BOOL hasFailed;
 	static BOOL initialized;
 	
@@ -406,7 +414,6 @@
 				
 				hasFailed = NO;
 				initialized = TRUE;
-				animating = YES;
 				setNewViewOnCompletion = NO;
 				
 				[self initFlip];
