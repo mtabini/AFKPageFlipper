@@ -51,6 +51,9 @@
 
 @implementation AFKPageFlipper
 
+@synthesize tapRecognizer = _tapRecognizer;
+@synthesize panRecognizer = _panRecognizer;
+
 
 #pragma mark -
 #pragma mark Flip functionality
@@ -478,16 +481,15 @@
 	return [CATransformLayer class];
 }
 
-
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-		UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)] autorelease];
-		UIPanGestureRecognizer *panRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)] autorelease];
+		_tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+		_panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
 		
-		[tapRecognizer requireGestureRecognizerToFail:panRecognizer];
+		[_tapRecognizer requireGestureRecognizerToFail:_panRecognizer];
 		
-        [self addGestureRecognizer:tapRecognizer];
-		[self addGestureRecognizer:panRecognizer];
+        [self addGestureRecognizer:_tapRecognizer];
+		[self addGestureRecognizer:_panRecognizer];
     }
     return self;
 }
@@ -497,6 +499,8 @@
 	self.dataSource = Nil;
 	self.currentView = Nil;
 	self.nextView = Nil;
+	self.tapRecognizer = Nil;
+	self.panRecognizer = Nil;
     [super dealloc];
 }
 
