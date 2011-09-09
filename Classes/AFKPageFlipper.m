@@ -44,7 +44,7 @@
 @interface AFKPageFlipper()
 
 @property (nonatomic,assign) UIView *currentView;
-@property (nonatomic,assign) UIView *newView;
+@property (nonatomic,assign) UIView *nextView;
 
 @end
 
@@ -61,12 +61,12 @@
 	// Create screenshots of view
 	
 	UIImage *currentImage = [self.currentView imageByRenderingView];
-	UIImage *newImage = [self.newView imageByRenderingView];
+	UIImage *newImage = [self.nextView imageByRenderingView];
 	
 	// Hide existing views
 	
 	self.currentView.alpha = 0;
-	self.newView.alpha = 0;
+	self.nextView.alpha = 0;
 	
 	// Create representational layers
 	
@@ -167,13 +167,13 @@
 	
 	animating = NO;
 	
-	if (setNewViewOnCompletion) {
+	if (setNextViewOnCompletion) {
 		[self.currentView removeFromSuperview];
-		self.currentView = self.newView;
-		self.newView = Nil;
+		self.currentView = self.nextView;
+		self.nextView = Nil;
 	} else {
-		[self.newView removeFromSuperview];
-		self.newView = Nil;
+		[self.nextView removeFromSuperview];
+		self.nextView = Nil;
 	}
 
 	self.currentView.alpha = 1;
@@ -239,15 +239,15 @@
 }
 
 
-@synthesize newView;
+@synthesize nextView;
 
 
-- (void) setNewView:(UIView *) value {
-	if (newView) {
-		[newView release];
+- (void) setNextView:(UIView *) value {
+	if (nextView) {
+		[nextView release];
 	}
 	
-	newView = [value retain];
+	nextView = [value retain];
 }
 
 
@@ -263,8 +263,8 @@
 	
 	currentPage = value;
 	
-	self.newView = [self.dataSource viewForPage:value inFlipper:self];
-	[self addSubview:self.newView];
+	self.nextView = [self.dataSource viewForPage:value inFlipper:self];
+	[self addSubview:self.nextView];
 	
 	return TRUE;
 }	
@@ -274,17 +274,17 @@
 		return;
 	}
 	
-	setNewViewOnCompletion = YES;
+	setNextViewOnCompletion = YES;
 	animating = YES;
 	
-	self.newView.alpha = 0;
+	self.nextView.alpha = 0;
 	
 	[UIView beginAnimations:@"" context:Nil];
 	[UIView setAnimationDuration:0.5];
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
 	
-	self.newView.alpha = 1;
+	self.nextView.alpha = 1;
 	
 	[UIView commitAnimations];
 } 
@@ -295,7 +295,7 @@
 		return;
 	}
 	
-	setNewViewOnCompletion = YES;
+	setNextViewOnCompletion = YES;
 	animating = YES;
 	
 	if (animated) {
@@ -385,7 +385,7 @@
 			hasFailed = FALSE;
 			initialized = FALSE;
 			animating = NO;
-			setNewViewOnCompletion = NO;
+			setNextViewOnCompletion = NO;
 			break;
 			
 			
@@ -416,7 +416,7 @@
 				
 				hasFailed = NO;
 				initialized = TRUE;
-				setNewViewOnCompletion = NO;
+				setNextViewOnCompletion = NO;
 				
 				[self initFlip];
 			}
@@ -440,13 +440,15 @@
 			}
 			
 			if (fabs((translation + [recognizer velocityInView:self].x / 4) / self.bounds.size.width) > 0.5) {
-				setNewViewOnCompletion = YES;
+				setNextViewOnCompletion = YES;
 				[self setFlipProgress:1.0 setDelegate:YES animate:YES];
 			} else {
 				[self setFlipProgress:0.0 setDelegate:YES animate:YES];
 				currentPage = oldPage;
 			}
 
+			break;
+		default:
 			break;
 	}
 }
@@ -494,7 +496,7 @@
 - (void)dealloc {
 	self.dataSource = Nil;
 	self.currentView = Nil;
-	self.newView = Nil;
+	self.nextView = Nil;
     [super dealloc];
 }
 

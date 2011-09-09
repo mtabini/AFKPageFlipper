@@ -34,7 +34,7 @@ typedef enum {
 	NSInteger numberOfPages;
 	
 	UIView *currentView;
-	UIView *newView;
+	UIView *nextView;
 	
 	CALayer *backgroundAnimationLayer;
 	CALayer *flipAnimationLayer;
@@ -44,7 +44,7 @@ typedef enum {
 	float endFlipAngle;
 	float currentAngle;
 
-	BOOL setNewViewOnCompletion;
+	BOOL setNextViewOnCompletion;
 	BOOL animating;
 	
 	BOOL disabled;
