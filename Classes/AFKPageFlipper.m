@@ -180,6 +180,7 @@
 	}
 
 	self.currentView.alpha = 1;
+	[self setUserInteractionEnabled:YES];
 }
 
 
@@ -199,6 +200,7 @@
 	endTransform = CATransform3DRotate(endTransform, newAngle, 0.0, 1.0, 0.0);	
 	
 	[flipAnimationLayer removeAllAnimations];
+	[self setUserInteractionEnabled:NO];
 							
 	[CATransaction begin];
 	[CATransaction setAnimationDuration:duration];
