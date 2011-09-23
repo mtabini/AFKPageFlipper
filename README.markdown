@@ -15,7 +15,7 @@ Usage
 
 Using AFKPageFlipper is extremely simple. Generally speaking, you will need to perform these steps:
 
-* Include AFKPageFlipper.h and AFKPageFlipper.m in your project. These are the only classes you will need.
+* Include AFKPageFlipper.h and AFKPageFlipper.m in your project. This is the only class you will need to include.
 * Import the Quartz Core framework into your project
 * Create an instance of AFKPageFlipper (either programmatically or through Interface Builder) and add it to your window (or to an existing view)
 * Provide the instance with a data source
