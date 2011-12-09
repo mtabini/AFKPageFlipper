@@ -21,6 +21,15 @@
 @end
 
 
+@protocol AFKPageFlipperDelegate <NSObject>
+
+@optional
+- (void)pageFlipper:(AFKPageFlipper *)pageFlipper
+	  didFlipToPage:(NSInteger)page;
+
+@end
+
+
 typedef enum {
 	AFKPageFlipperDirectionLeft,
 	AFKPageFlipperDirectionRight,
@@ -51,12 +60,14 @@ typedef enum {
 }
 
 @property (nonatomic,retain) NSObject <AFKPageFlipperDataSource> *dataSource;
+@property (nonatomic, assign) id <AFKPageFlipperDelegate> delegate;
 @property (nonatomic,assign) NSInteger currentPage;
 
 @property (nonatomic, retain) UITapGestureRecognizer *tapRecognizer;
 @property (nonatomic, retain) UIPanGestureRecognizer *panRecognizer;
 
 @property (nonatomic,assign) BOOL disabled;
+
 
 - (void) setCurrentPage:(NSInteger) value animated:(BOOL) animated;
 
