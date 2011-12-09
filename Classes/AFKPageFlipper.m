@@ -53,6 +53,7 @@
 
 @synthesize tapRecognizer = _tapRecognizer;
 @synthesize panRecognizer = _panRecognizer;
+@synthesize delegate;
 
 
 #pragma mark -
@@ -180,6 +181,7 @@
 	}
 
 	self.currentView.alpha = 1;
+	[self setUserInteractionEnabled:YES];
 }
 
 
@@ -199,6 +201,7 @@
 	endTransform = CATransform3DRotate(endTransform, newAngle, 0.0, 1.0, 0.0);	
 	
 	[flipAnimationLayer removeAllAnimations];
+	[self setUserInteractionEnabled:NO];
 							
 	[CATransaction begin];
 	[CATransaction setAnimationDuration:duration];
@@ -209,6 +212,16 @@
 	
 	if (setDelegate) {
 		[self performSelector:@selector(cleanupFlip) withObject:Nil afterDelay:duration];
+	}
+	
+	if (progress == 1.0f) {
+		if ([self delegate] != nil) {
+			if ([[self delegate] respondsToSelector:@selector(pageFlipper:didFlipToPage:)]) {
+				[[self delegate] pageFlipper:self
+							   didFlipToPage:[self currentPage]];
+			}
+		}
+
 	}
 }
 
