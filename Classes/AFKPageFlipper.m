@@ -339,6 +339,14 @@
 	}
 }
 
+@synthesize sensitivityScale;
+
+- (CGFloat) sensitivityScale {
+    if (sensitivityScale <= 0) {
+        sensitivityScale = 1.0;
+    }
+    return sensitivityScale;
+}
 
 #pragma mark -
 #pragma mark Touch management
@@ -376,6 +384,8 @@
 	float translation = [recognizer translationInView:self].x;
 	
 	float progress = translation / self.bounds.size.width;
+    
+    progress *= self.sensitivityScale;
 	
 	if (flipDirection == AFKPageFlipperDirectionLeft) {
 		progress = MIN(progress, 0);
@@ -442,7 +452,7 @@
 				return;
 			}
 			
-			if (fabs((translation + [recognizer velocityInView:self].x / 4) / self.bounds.size.width) > 0.5) {
+			if (fabs((translation * sensitivityScale + [recognizer velocityInView:self].x / 4) / self.bounds.size.width) > 0.5) {
 				setNextViewOnCompletion = YES;
 				[self setFlipProgress:1.0 setDelegate:YES animate:YES];
 			} else {

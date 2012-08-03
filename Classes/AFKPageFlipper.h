@@ -48,6 +48,7 @@ typedef enum {
 	BOOL animating;
 	
 	BOOL disabled;
+    CGFloat sensitivityScale;
 }
 
 @property (nonatomic,retain) NSObject <AFKPageFlipperDataSource> *dataSource;
@@ -57,6 +58,7 @@ typedef enum {
 @property (nonatomic, retain) UIPanGestureRecognizer *panRecognizer;
 
 @property (nonatomic,assign) BOOL disabled;
+@property (nonatomic,assign) CGFloat sensitivityScale;
 
 - (void) setCurrentPage:(NSInteger) value animated:(BOOL) animated;
 
