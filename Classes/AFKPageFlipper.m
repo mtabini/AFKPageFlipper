@@ -26,7 +26,7 @@
 - (UIImage *) imageByRenderingView {
     CGFloat oldAlpha = self.alpha;
     self.alpha = 1;
-    UIGraphicsBeginImageContext(self.bounds.size);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
 	[self.layer renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
@@ -61,6 +61,9 @@
 
 - (void) initFlip {
 	
+    // Get the natural scale factor associated with the screen
+    float scale = [[[[UIApplication sharedApplication] keyWindow] screen] scale];
+    
 	// Create screenshots of view
 	
 	UIImage *currentImage = [self.currentView imageByRenderingView];
@@ -84,6 +87,7 @@
 	leftLayer.frame = rect;
 	leftLayer.masksToBounds = YES;
 	leftLayer.contentsGravity = kCAGravityLeft;
+    leftLayer.contentsScale = scale;
 	
 	[backgroundAnimationLayer addSublayer:leftLayer];
 	
@@ -93,6 +97,7 @@
 	rightLayer.frame = rect;
 	rightLayer.masksToBounds = YES;
 	rightLayer.contentsGravity = kCAGravityRight;
+    rightLayer.contentsScale = scale;
 	
 	[backgroundAnimationLayer addSublayer:rightLayer];
 	
@@ -118,6 +123,7 @@
 	backLayer.frame = flipAnimationLayer.bounds;
 	backLayer.doubleSided = NO;
 	backLayer.masksToBounds = YES;
+    backLayer.contentsScale = scale;
 	
 	[flipAnimationLayer addSublayer:backLayer];
 	
@@ -125,6 +131,7 @@
 	frontLayer.frame = flipAnimationLayer.bounds;
 	frontLayer.doubleSided = NO;
 	frontLayer.masksToBounds = YES;
+    frontLayer.contentsScale = scale;
 	frontLayer.transform = CATransform3DMakeRotation(M_PI, 0, 1.0, 0);
 	
 	[flipAnimationLayer addSublayer:frontLayer];
