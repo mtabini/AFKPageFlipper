@@ -43,8 +43,8 @@
 
 @interface AFKPageFlipper()
 
-@property (nonatomic,assign) UIView *currentView;
-@property (nonatomic,assign) UIView *nextView;
+@property (weak, nonatomic) UIView *currentView;
+@property (weak, nonatomic) UIView *nextView;
 
 @end
 
@@ -187,6 +187,7 @@
 	}
 
 	self.currentView.alpha = 1;
+    [self setUserInteractionEnabled:YES];
 }
 
 
@@ -206,6 +207,7 @@
 	endTransform = CATransform3DRotate(endTransform, newAngle, 0.0, 1.0, 0.0);	
 	
 	[flipAnimationLayer removeAllAnimations];
+    [self setUserInteractionEnabled:NO];
 							
 	[CATransaction begin];
 	[CATransaction setAnimationDuration:duration];
@@ -241,11 +243,8 @@
 
 
 - (void) setCurrentView:(UIView *) value {
-	if (currentView) {
-		[currentView release];
-	}
 	
-	currentView = [value retain];
+	currentView = value;
 }
 
 
@@ -253,11 +252,8 @@
 
 
 - (void) setNextView:(UIView *) value {
-	if (nextView) {
-		[nextView release];
-	}
 	
-	nextView = [value retain];
+	nextView = value;
 }
 
 
@@ -322,11 +318,8 @@
 
 
 - (void) setDataSource:(NSObject <AFKPageFlipperDataSource>*) value {
-	if (dataSource) {
-		[dataSource release];
-	}
 	
-	dataSource = [value retain];
+	dataSource = value;
 	numberOfPages = [dataSource numberOfPagesForPageFlipper:self];
     currentPage = 0;
 	self.currentPage = 1;
@@ -506,9 +499,6 @@
 	self.dataSource = Nil;
 	self.currentView = Nil;
 	self.nextView = Nil;
-	self.tapRecognizer = Nil;
-	self.panRecognizer = Nil;
-    [super dealloc];
 }
 
 

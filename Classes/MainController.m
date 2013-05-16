@@ -9,6 +9,7 @@
 #import "MainController.h"
 
 #import "PDFRendererView.h"
+#import "GridView.h"
 
 
 @implementation MainController
@@ -24,9 +25,10 @@
 
 
 - (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper {
-	PDFRendererView *result = [[[PDFRendererView alloc] initWithFrame:pageFlipper.bounds] autorelease];
+	PDFRendererView *result = [[PDFRendererView alloc] initWithFrame:pageFlipper.bounds];
 	result.pdfDocument = pdfDocument;
 	result.pageNumber = page;
+//    GridView *result = [GridView gridView];
 	
 	return result;
 }
@@ -37,17 +39,16 @@
 
 
 - (void) loadView {
-	[super loadView];
+    self.view = [[UIView alloc]initWithFrame:CGRectZero];
 	self.view.autoresizesSubviews = YES;
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	
-	flipper = [[[AFKPageFlipper alloc] initWithFrame:self.view.bounds] autorelease];
+	flipper = [[AFKPageFlipper alloc] initWithFrame:self.view.bounds];
 	flipper.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	flipper.dataSource = self;
 	
 	[self.view addSubview:flipper];
 }
-
 
 #pragma mark -
 #pragma mark Initialization and memory management
@@ -60,9 +61,7 @@
 
 - (id) init {
 	if ((self = [super init])) {
-		pdfDocument = CGPDFDocumentCreateWithURL((CFURLRef) [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ccrf" ofType:@"pdf"]]);
-		
-		[self loadView];
+		pdfDocument = CGPDFDocumentCreateWithURL((__bridge CFURLRef) [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ccrf" ofType:@"pdf"]]);		
 	}
 	
 	return self;
@@ -71,7 +70,6 @@
 
 - (void)dealloc {
 	CGPDFDocumentRelease(pdfDocument);
-    [super dealloc];
 }
 
 
