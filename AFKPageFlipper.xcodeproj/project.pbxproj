@@ -19,8 +19,6 @@
 		8FBAC1A81263F9ED00881579 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC1A71263F9ED00881579 /* MainController.m */; settings = {COMPILER_FLAGS = ""; }; };
 		8FBAC2491264061600881579 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBAC2481264061600881579 /* QuartzCore.framework */; };
 		8FBAC8131264315F00881579 /* AFKPageFlipper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC8121264315F00881579 /* AFKPageFlipper.m */; };
-		B66F8ACD17437EE30083E146 /* GridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B66F8ACC17437EE30083E146 /* GridView.xib */; };
-		B66F8AD017437EFA0083E146 /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66F8ACF17437EFA0083E146 /* GridView.m */; settings = {COMPILER_FLAGS = ""; }; };
 		B66F8AD2174386010083E146 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B66F8AD1174386000083E146 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -44,9 +42,6 @@
 		8FBAC2481264061600881579 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8FBAC8111264315F00881579 /* AFKPageFlipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFKPageFlipper.h; sourceTree = "<group>"; };
 		8FBAC8121264315F00881579 /* AFKPageFlipper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFKPageFlipper.m; sourceTree = "<group>"; };
-		B66F8ACC17437EE30083E146 /* GridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridView.xib; sourceTree = "<group>"; };
-		B66F8ACE17437EFA0083E146 /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
-		B66F8ACF17437EFA0083E146 /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
 		B66F8AD1174386000083E146 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,9 +146,6 @@
 			children = (
 				8FBAC1A61263F9ED00881579 /* MainController.h */,
 				8FBAC1A71263F9ED00881579 /* MainController.m */,
-				B66F8ACE17437EFA0083E146 /* GridView.h */,
-				B66F8ACF17437EFA0083E146 /* GridView.m */,
-				B66F8ACC17437EE30083E146 /* GridView.xib */,
 			);
 			name = "Main Controller";
 			sourceTree = "<group>";
@@ -222,7 +214,6 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				8FBAC19B1263F97A00881579 /* ccrf.pdf in Resources */,
 				8FAEF9B51267F95A00D88B84 /* Icon.png in Resources */,
-				B66F8ACD17437EE30083E146 /* GridView.xib in Resources */,
 				B66F8AD2174386010083E146 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +230,6 @@
 				8FBAC1A41263F99800881579 /* PDFRendererView.m in Sources */,
 				8FBAC1A81263F9ED00881579 /* MainController.m in Sources */,
 				8FBAC8131264315F00881579 /* AFKPageFlipper.m in Sources */,
-				B66F8AD017437EFA0083E146 /* GridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
