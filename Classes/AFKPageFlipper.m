@@ -45,6 +45,8 @@
 
 @property (weak, nonatomic) UIView *currentView;
 @property (weak, nonatomic) UIView *nextView;
+// reuse
+@property (nonatomic, strong) NSMutableSet *reuseViews;
 
 @end
 
@@ -179,6 +181,7 @@
 	
 	if (setNextViewOnCompletion) {
 		[self.currentView removeFromSuperview];
+        [self queueReusableView:self.currentView];
 		self.currentView = self.nextView;
 		self.nextView = Nil;
 	} else {
@@ -236,6 +239,23 @@
 }
 
 
+#pragma mark - ReusableViews
+
+- (void)queueReusableView:(UIView *)view{
+    if (view) {
+        view.alpha = 1.0;
+        [self.reuseViews addObject:view];
+    }
+}
+
+- (UIView *)dequeueReusableView{
+    UIView *view = [self.reuseViews anyObject];
+    if (view) {
+        [self.reuseViews removeObject:view];
+    }
+    return view;
+}
+
 #pragma mark -
 #pragma mark Properties
 
@@ -269,7 +289,8 @@
 	
 	currentPage = value;
 	
-	self.nextView = [self.dataSource viewForPage:value inFlipper:self];
+    UIView *reuseView = [self dequeueReusableView];
+	self.nextView = [self.dataSource viewForPage:value inFlipper:self reuseView:reuseView];
 	[self addSubview:self.nextView];
 	
 	return TRUE;
@@ -490,15 +511,23 @@
 		
         [self addGestureRecognizer:_tapRecognizer];
 		[self addGestureRecognizer:_panRecognizer];
+        
+        [self setAutoresizesSubviews:NO];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:Nil];
+        self.reuseViews = [NSMutableSet set];
     }
     return self;
 }
 
+- (void)receiveMemoryWarning:(NSNotification *)notification{
+    [self.reuseViews removeAllObjects];
+}
 
 - (void)dealloc {
 	self.dataSource = Nil;
 	self.currentView = Nil;
 	self.nextView = Nil;
+    self.reuseViews = Nil;
 }
 
 

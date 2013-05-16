@@ -24,15 +24,18 @@
 }
 
 
-- (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper {
-	PDFRendererView *result = [[PDFRendererView alloc] initWithFrame:pageFlipper.bounds];
+- (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper reuseView:(UIView *)view{
+    PDFRendererView *result;
+    if (view == nil) {
+        result = [[PDFRendererView alloc] initWithFrame:pageFlipper.bounds];
+    }else{
+        result = (PDFRendererView *)view;
+    }
 	result.pdfDocument = pdfDocument;
 	result.pageNumber = page;
-//    GridView *result = [GridView gridView];
-	
+    
 	return result;
 }
-
 
 #pragma mark -
 #pragma mark View management
