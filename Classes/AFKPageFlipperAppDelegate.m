@@ -17,11 +17,11 @@
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-
+    
 	mainController = [[MainController alloc] init];
 	
-	[window addSubview:mainController.view];
-    [window makeKeyAndVisible];
+	[self.window setRootViewController:mainController];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
@@ -59,10 +59,6 @@
 }
 
 
-- (void)dealloc {
-    [window release];
-    [super dealloc];
-}
 
 
 @end

@@ -26,7 +26,7 @@
 - (UIImage *) imageByRenderingView {
     CGFloat oldAlpha = self.alpha;
     self.alpha = 1;
-    UIGraphicsBeginImageContext(self.bounds.size);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
 	[self.layer renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
@@ -43,8 +43,10 @@
 
 @interface AFKPageFlipper()
 
-@property (nonatomic,assign) UIView *currentView;
-@property (nonatomic,assign) UIView *nextView;
+@property (weak, nonatomic) UIView *currentView;
+@property (weak, nonatomic) UIView *nextView;
+// reuse
+@property (nonatomic, strong) NSMutableSet *reuseViews;
 
 @end
 
@@ -61,6 +63,9 @@
 
 - (void) initFlip {
 	
+    // Get the natural scale factor associated with the screen
+    float scale = [[[[UIApplication sharedApplication] keyWindow] screen] scale];
+    
 	// Create screenshots of view
 	
 	UIImage *currentImage = [self.currentView imageByRenderingView];
@@ -84,6 +89,7 @@
 	leftLayer.frame = rect;
 	leftLayer.masksToBounds = YES;
 	leftLayer.contentsGravity = kCAGravityLeft;
+    leftLayer.contentsScale = scale;
 	
 	[backgroundAnimationLayer addSublayer:leftLayer];
 	
@@ -93,6 +99,7 @@
 	rightLayer.frame = rect;
 	rightLayer.masksToBounds = YES;
 	rightLayer.contentsGravity = kCAGravityRight;
+    rightLayer.contentsScale = scale;
 	
 	[backgroundAnimationLayer addSublayer:rightLayer];
 	
@@ -118,6 +125,7 @@
 	backLayer.frame = flipAnimationLayer.bounds;
 	backLayer.doubleSided = NO;
 	backLayer.masksToBounds = YES;
+    backLayer.contentsScale = scale;
 	
 	[flipAnimationLayer addSublayer:backLayer];
 	
@@ -125,6 +133,7 @@
 	frontLayer.frame = flipAnimationLayer.bounds;
 	frontLayer.doubleSided = NO;
 	frontLayer.masksToBounds = YES;
+    frontLayer.contentsScale = scale;
 	frontLayer.transform = CATransform3DMakeRotation(M_PI, 0, 1.0, 0);
 	
 	[flipAnimationLayer addSublayer:frontLayer];
@@ -172,6 +181,7 @@
 	
 	if (setNextViewOnCompletion) {
 		[self.currentView removeFromSuperview];
+        [self queueReusableView:self.currentView];
 		self.currentView = self.nextView;
 		self.nextView = Nil;
 	} else {
@@ -180,6 +190,7 @@
 	}
 
 	self.currentView.alpha = 1;
+    [self setUserInteractionEnabled:YES];
 }
 
 
@@ -199,6 +210,7 @@
 	endTransform = CATransform3DRotate(endTransform, newAngle, 0.0, 1.0, 0.0);	
 	
 	[flipAnimationLayer removeAllAnimations];
+    [self setUserInteractionEnabled:NO];
 							
 	[CATransaction begin];
 	[CATransaction setAnimationDuration:duration];
@@ -227,6 +239,23 @@
 }
 
 
+#pragma mark - ReusableViews
+
+- (void)queueReusableView:(UIView *)view{
+    if (view) {
+        view.alpha = 1.0;
+        [self.reuseViews addObject:view];
+    }
+}
+
+- (UIView *)dequeueReusableView{
+    UIView *view = [self.reuseViews anyObject];
+    if (view) {
+        [self.reuseViews removeObject:view];
+    }
+    return view;
+}
+
 #pragma mark -
 #pragma mark Properties
 
@@ -234,11 +263,8 @@
 
 
 - (void) setCurrentView:(UIView *) value {
-	if (currentView) {
-		[currentView release];
-	}
 	
-	currentView = [value retain];
+	currentView = value;
 }
 
 
@@ -246,11 +272,8 @@
 
 
 - (void) setNextView:(UIView *) value {
-	if (nextView) {
-		[nextView release];
-	}
 	
-	nextView = [value retain];
+	nextView = value;
 }
 
 
@@ -266,7 +289,8 @@
 	
 	currentPage = value;
 	
-	self.nextView = [self.dataSource viewForPage:value inFlipper:self];
+    UIView *reuseView = [self dequeueReusableView];
+	self.nextView = [self.dataSource viewForPage:value inFlipper:self reuseView:reuseView];
 	[self addSubview:self.nextView];
 	
 	return TRUE;
@@ -315,11 +339,8 @@
 
 
 - (void) setDataSource:(NSObject <AFKPageFlipperDataSource>*) value {
-	if (dataSource) {
-		[dataSource release];
-	}
 	
-	dataSource = [value retain];
+	dataSource = value;
 	numberOfPages = [dataSource numberOfPagesForPageFlipper:self];
     currentPage = 0;
 	self.currentPage = 1;
@@ -490,18 +511,23 @@
 		
         [self addGestureRecognizer:_tapRecognizer];
 		[self addGestureRecognizer:_panRecognizer];
+        
+        [self setAutoresizesSubviews:NO];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:Nil];
+        self.reuseViews = [NSMutableSet set];
     }
     return self;
 }
 
+- (void)receiveMemoryWarning:(NSNotification *)notification{
+    [self.reuseViews removeAllObjects];
+}
 
 - (void)dealloc {
 	self.dataSource = Nil;
 	self.currentView = Nil;
 	self.nextView = Nil;
-	self.tapRecognizer = Nil;
-	self.panRecognizer = Nil;
-    [super dealloc];
+    self.reuseViews = Nil;
 }
 
 

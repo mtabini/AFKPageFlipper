@@ -16,7 +16,7 @@
 @protocol AFKPageFlipperDataSource
 
 - (NSInteger) numberOfPagesForPageFlipper:(AFKPageFlipper *) pageFlipper;
-- (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper;
+- (UIView *) viewForPage:(NSInteger) page inFlipper:(AFKPageFlipper *) pageFlipper reuseView:(UIView *)view;
 
 @end
 
@@ -33,8 +33,8 @@ typedef enum {
 	NSInteger currentPage;
 	NSInteger numberOfPages;
 	
-	UIView *currentView;
-	UIView *nextView;
+	UIView *__weak currentView;
+	UIView *__weak nextView;
 	
 	CALayer *backgroundAnimationLayer;
 	CALayer *flipAnimationLayer;
@@ -50,11 +50,11 @@ typedef enum {
 	BOOL disabled;
 }
 
-@property (nonatomic,retain) NSObject <AFKPageFlipperDataSource> *dataSource;
+@property (nonatomic,strong) NSObject <AFKPageFlipperDataSource> *dataSource;
 @property (nonatomic,assign) NSInteger currentPage;
 
-@property (nonatomic, retain) UITapGestureRecognizer *tapRecognizer;
-@property (nonatomic, retain) UIPanGestureRecognizer *panRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 
 @property (nonatomic,assign) BOOL disabled;
 
