@@ -151,7 +151,7 @@
 		frontLayer.contentsGravity = kCAGravityRight;
 		
 		CATransform3D transform = CATransform3DMakeRotation(-M_PI / 1.1, 0.0, 1.0, 0.0);
-		transform.m34 = 1.0f / 2500.0f;
+		transform.m34 = -1.0f / 2500.0f;
 		
 		flipAnimationLayer.transform = transform;
 		
