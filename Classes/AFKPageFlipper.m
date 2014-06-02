@@ -178,7 +178,10 @@
 		[self.nextView removeFromSuperview];
 		self.nextView = Nil;
 	}
-
+    
+    //Enable user interaction that has been disabled while flipping.
+    self.userInteractionEnabled = YES;
+    
 	self.currentView.alpha = 1;
 }
 
@@ -445,6 +448,10 @@
 			if (fabs((translation + [recognizer velocityInView:self].x / 4) / self.bounds.size.width) > 0.5) {
 				setNextViewOnCompletion = YES;
 				[self setFlipProgress:1.0 setDelegate:YES animate:YES];
+                
+                //Disable user interaction to prevent conflict with another quick swipe gesture while view is still flipping. This lessen the possibility of having a blank page.
+                self.userInteractionEnabled = NO;
+                
 			} else {
 				[self setFlipProgress:0.0 setDelegate:YES animate:YES];
 				currentPage = oldPage;
