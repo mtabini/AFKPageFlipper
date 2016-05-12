@@ -42,6 +42,7 @@
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	
 	flipper = [[[AFKPageFlipper alloc] initWithFrame:self.view.bounds] autorelease];
+    flipper.sensitivityScale = 2;
 	flipper.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	flipper.dataSource = self;
 	
